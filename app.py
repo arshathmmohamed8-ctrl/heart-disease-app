@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 
-st.title("🔥 Heart Disease Prediction System")
+st.title("🧡 Heart Disease Prediction System")
 
 # Load Model (Pipeline: Scaler + Logistic Regression)
 model = joblib.load("model.pkl")  # your model file
@@ -34,3 +34,4 @@ if st.button("Predict"):
         st.error("🔴 HIGH RISK — Possible heart disease ❗")
     else:
         st.success("🟢 LOW RISK — No major indicators detected")
+
