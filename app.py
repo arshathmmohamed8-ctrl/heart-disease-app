@@ -25,13 +25,12 @@ ca = st.selectbox("Major Vessels Colored (0-3)", [0,1,2,3])
 thal = st.selectbox("Thalassemia (0=Normal,1=Fixed,2=Reversible,3=Others)", [0,1,2,3])
 
 if st.button("Predict"):
-    features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, 
-                          thalach, exang, oldpeak, slope, ca, thal]])
 
-    result = model.predict(features)[0]
+    proba = model.predict_proba(input_data)[0][1]  # probability of disease
 
-    if result == 1:
-        st.error("🔴 HIGH RISK — Possible heart disease ❗")
+    if proba > 0.65:
+        st.error(f"🔴 HIGH RISK — Model Confidence: {proba:.2f}")
+    elif proba < 0.35:
+        st.success(f"🟢 LOW RISK — Model Confidence: {proba:.2f}")
     else:
-        st.success("🟢 LOW RISK — No major indicators detected")
-
+        st.warning(f"🟡 MEDIUM RISK — Model Confidence: {proba:.2f}")
