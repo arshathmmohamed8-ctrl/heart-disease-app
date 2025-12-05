@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 
-model = joblib.load("model.pkl")
+model = joblib.load("heart_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
 st.set_page_config(page_title="Heart Disease Prediction", layout="centered")
@@ -39,4 +39,5 @@ if st.button("🔍 Predict Risk"):
         st.error("🔴 HIGH RISK — Symptoms suggest possible heart disease.")
     else:
         st.success("🟢 LOW RISK — No major symptoms detected.")
+
 
