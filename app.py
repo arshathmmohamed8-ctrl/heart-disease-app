@@ -3,6 +3,7 @@ import joblib
 import numpy as np
 
 model = joblib.load("heart_model.pkl")
+scaler = joblib.load("heart_scaler.pkl")
 
 st.set_page_config(page_title="Heart Disease Prediction", layout="centered")
 st.title("💓 Heart Disease Risk Predictor")
@@ -38,6 +39,3 @@ if st.button("🔍 Predict Risk"):
         st.error("🔴 HIGH RISK — Symptoms suggest possible heart disease.")
     else:
         st.success("🟢 LOW RISK — No major symptoms detected.")
-
-
-
