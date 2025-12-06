@@ -4,7 +4,7 @@ import joblib
 
 st.set_page_config(page_title="Heart Risk Predictor", layout="centered")
 
-model = joblib.load("model.pkl")
+model = joblib.load("final.pkl")
 
 st.title("❤️ Heart Disease Risk Prediction")
 
@@ -40,3 +40,4 @@ if submit:
         st.warning(f"🟡 MEDIUM RISK — Probability: {proba:.2f}")
     else:
         st.success(f"🟢 LOW RISK — Probability: {proba:.2f}")
+
